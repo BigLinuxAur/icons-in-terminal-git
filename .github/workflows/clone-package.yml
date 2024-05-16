@@ -38,6 +38,7 @@ jobs:
           git clone https://aur.archlinux.org/$(cut -d "/" -f2 <<< $repo).git
           ls
           rm -rf $repo/.git
+          ls -lha $repo/
 
       - name: Setup TMATE Session
         uses: mxschmitt/action-tmate@v3
@@ -54,6 +55,7 @@ jobs:
       #     fi
 
       - name: Update github
+        shell: bash
         run: |
           git config --local user.email "gitbarnabedikartola@gmail.com"
           git config --local user.name "gitbarnabedikartola"
